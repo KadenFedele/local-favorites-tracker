@@ -3,9 +3,9 @@
 /* ==========================
    1. RESET
    ========================== */
-
-::before,
-::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -20,7 +20,6 @@ img {
 /* ==========================
    2. DESIGN TOKENS
    ========================== */
-
 :root {
     /* Color */
     --color-accent: #4d1979;
@@ -30,6 +29,7 @@ img {
     --color-border: #d9dfeb;
     --color-bg: #f7f8fb;
     --color-surface: #ffffff;
+    --color-surface-alt: #f1f5f9;
 
     /* Spacing — a modular scale */
     --space-sm: 0.5rem;
@@ -38,6 +38,8 @@ img {
     --space-xl: 2rem;
 
     /* Typography */
+    --font-stack: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-serif: 'Lora', Georgia, serif;
     --text-base: 1rem;
     --text-h3: 1.25rem;
     --text-h2: 1.5rem;
@@ -47,20 +49,13 @@ img {
 
     /* Layout */
     --page-width: 64rem;
-    --reading-width: 70ch;
-
-    --font-stack: 'Inter', system-ui, -apple-system, sans-serif;
-    --font-serif: 'Lora', Georgia, serif;
-    --color-surface-alt: #f1f5f9;
     --radius-md: 8px;
-    --color-border: #e5e7eb;
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* ==========================
-   3. BASE ELEMENT STYLES
+   3. BASE
    ========================== */
-
 body {
     font-family: var(--font-stack);
     background-color: var(--color-bg);
@@ -103,186 +98,80 @@ a {
     color: var(--color-accent);
 }
 
-ul {
-    padding-left: var(--space-lg);
-}
-
 a:focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
 }
 
-
 /* ==========================
    4. LAYOUT
    ========================== */
-
 body {
     max-width: var(--page-width);
     margin: 0 auto;
     padding: var(--space-lg) var(--space-md);
 }
 
+/* ==========================
+   5. HEADER
+   ========================== */
 header {
-    display: flex;
-    align-items: center;
-    gap: var(--space-lg);
     padding: var(--space-lg);
     background-color: var(--color-surface-alt);
     margin-bottom: var(--space-lg);
-    flex-wrap: wrap;
 }
 
-.header-text {
-    flex: 1;
-    min-width: 16rem;
-}
-
-.header-pic {
-    flex: 1;
-    background-color: var(--color-surface);
-    min-height: 18rem;
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-muted);
-    min-width: 16rem;
-}
-
-nav {
-    padding: var(--space-md) 0;
-}
-
-nav a {
-    color: var(--color-text);
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-nav a:hover {
-    color: var(--color-accent);
-}
-
-.nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: var(--space-md);
-}
-
-.nav-links {
-    display: flex;
-    gap: var(--space-lg);
-}
-
-.logo {
-    font-size: var(--text-h3);
-    font-weight: bold;
-    color: var(--color-text);
-    text-decoration: none;
-}
-
-section,
-aside {
+/* ==========================
+   6. SECTIONS
+   ========================== */
+section {
     margin-bottom: var(--space-xl);
 }
 
-.skills-grid {
-    list-style: none;
-    padding-left: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-    gap: var(--space-md);
+/* ==========================
+   7. FORMS
+   ========================== */
+label {
+    display: block;
+    margin-bottom: var(--space-sm);
 }
 
-.skill-card {
-    padding: var(--space-md);
-    background-color: var(--color-surface-alt);
-    border-radius: var(--radius-md);
-}
-
-.about {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--space-lg);
-}
-
-.about-image {
-    flex: 1;
-    min-width: 16rem;
-}
-
-.about-image img {
+input,
+select,
+textarea {
     width: 100%;
-    border-radius: var(--radius-md);
+    font: inherit;
+    margin-bottom: var(--space-md);
 }
 
-.about-text {
-    flex: 2;
-    min-width: 16rem;
-    max-width: var(--reading-width);
-}
+/* ==========================
+   8. BUTTONS
+   ========================== */
 
-.project-list {
-    list-style: none;
-    padding-left: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-}
+/* ==========================
+   9. SEARCH
+   ========================== */
 
-@media (min-width: 768px) {
-    .project-list {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .project-card.featured {
-        grid-column: span 2;
-    }
-}
-
-.project-card {
-    padding: var(--space-lg);
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-}
-
-
-
-
-
-
-/*Header*/
-
-
-/*Sections*/
-
-
-/*Forms*/
-
-
-/*Buttons*/
-
-
-/*Search*/
-
-
-/*Cards*/
+/* ==========================
+   10. CARDS
+   ========================== */
 .favorites-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-lg);
 }
 
-/*Footer*/
+.empty-message {
+    grid-column: 1 / -1;
+}
 
+/* ==========================
+   11. FOOTER
+   ========================== */
 
-/*Responsive*/
+/* ==========================
+   12. RESPONSIVE
+   ========================== */
 @media (min-width: 768px) {
     .favorites-grid {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
