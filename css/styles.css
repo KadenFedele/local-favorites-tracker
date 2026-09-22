@@ -161,6 +161,14 @@ textarea {
     gap: var(--space-lg);
 }
 
+.favorite-card {
+    padding: var(--space-lg);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
 .empty-message {
     grid-column: 1 / -1;
 }
