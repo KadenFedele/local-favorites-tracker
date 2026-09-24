@@ -30,6 +30,7 @@ img {
     --color-bg: #f7f8fb;
     --color-surface: #ffffff;
     --color-surface-alt: #f1f5f9;
+    --color-danger: #b42318;
 
     /* Spacing — a modular scale */
     --space-sm: 0.5rem;
@@ -147,6 +148,10 @@ textarea {
 /* ==========================
    8. BUTTONS
    ========================== */
+.btn-danger {
+    background-color: var(--color-danger);
+    color: var(--color-surface);
+}
 
 /* ==========================
    9. SEARCH
