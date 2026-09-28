@@ -39,6 +39,26 @@ greetFavorite('Starbucks', 5);   // "Starbucks has 5 stars!"
 const nameInput = document.getElementById('name');
 console.log(nameInput.value);   // what the user typed
 
+function saveFavorites() {
+    try {
+        localStorage.setItem('localFavorites', JSON.stringify(favorites));
+    } catch (error) {
+        alert('Unable to save favorites. Storage may be disabled.');
+    }
+}
+function loadFavorites() {
+    try {
+        const saved = localStorage.getItem('localFavorites');
+        if (saved) {
+            favorites = JSON.parse(saved);
+        } else {
+            favorites = [];
+        }
+    } catch (error) {
+        favorites = [];
+    }
+}
+
 function addFavorite(event) {
     event.preventDefault();
 
@@ -59,6 +79,7 @@ function addFavorite(event) {
     };
 
     favorites.push(newFavorite);
+    saveFavorites();
     form.reset();
     displayFavorites();
 }
@@ -69,6 +90,7 @@ function deleteFavorite(index) {
     const favorite = favorites[index];
     if (confirm(`Delete "${favorite.name}"?`)) {
         favorites.splice(index, 1);   // remove 1 item at index
+        saveFavorites();
         searchFavorites();            // re-render, keeping current filter
     }
 }
@@ -120,5 +142,6 @@ function displayFavorites() {
 }
 
 // The last line in js/app.js
+loadFavorites();
 displayFavorites();
 
