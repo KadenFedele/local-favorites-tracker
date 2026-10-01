@@ -31,6 +31,8 @@ img {
     --color-surface: #ffffff;
     --color-surface-alt: #f1f5f9;
     --color-danger: #b42318;
+    --color-coffee: #7a4419;
+    --color-restaurant: #1a5c3a;
 
     /* Spacing — a modular scale */
     --space-sm: 0.5rem;
@@ -52,6 +54,7 @@ img {
     --page-width: 64rem;
     --radius-md: 8px;
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* ==========================
@@ -148,6 +151,10 @@ textarea {
     border-radius: var(--radius-md);
 }
 
+.error-message {
+    color: var(--color-danger);
+}
+
 /* ==========================
    8. BUTTONS
    ========================== */
@@ -192,6 +199,19 @@ button {
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s;   /* on the resting rule, not on :hover */
+}
+
+.favorite-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.category-coffee {
+    color: var(--color-coffee);
+}
+
+.category-restaurant {
+    color: var(--color-restaurant);
 }
 
 .empty-message {
